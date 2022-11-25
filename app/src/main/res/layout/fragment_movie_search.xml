@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/search"
+    tools:context=".MovieSearchFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:id="@+id/searchContainer"
+        android:layout_height="130dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/roundeddarkorange">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:id="@+id/txtSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingTop="20dp"
+        android:paddingStart="20dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:inputType="text"
+        android:id="@+id/searchTextField"
+        android:iconifiedByDefault="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingStart="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/roundedwhite"
+        android:layout_marginBottom="20dp"
+        />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/SearchMovieRecyclerView"
+        app:layout_constraintTop_toBottomOf="@id/searchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+</androidx.constraintlayout.widget.ConstraintLayout>

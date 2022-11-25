@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MovieDetailFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/movieBackImg"
+        android:background="@drawable/roundeddarkorange"
+
+        />
+
+    <ImageView
+        android:id="@+id/movieImg"
+        android:layout_width="90dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/roundeddetailmovieimg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="186dp"
+        android:textColor="@color/black"
+        android:paddingTop="16dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:text="8.2"
+        android:textAlignment="center"
+        android:background="@drawable/roundedyellowborder"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/movieImg"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Synopsis"
+        android:id="@+id/synopsis"
+        android:textStyle="bold"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="10dp"
+/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:id="@+id/movieSynopsis"
+        app:layout_constraintTop_toBottomOf="@id/synopsis"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="36dp"
+        tools:text="rekazljdkf qsfkdlsjfs f,dskjdflskjdfs ldkfjdslkjflkdsjkldsjdflskjdlsjdfkls skldfjkdkls"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/movieSynopsis"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/similarMovie"
+        android:text="Similar Movies"
+        android:textStyle="bold"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="La guerre des étoiles "
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        app:layout_constraintStart_toEndOf="@id/movieImg"
+        app:layout_constraintTop_toBottomOf="@id/movieBackImg"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:id="@+id/similarMovieRecyclerVue"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@id/similarMovie"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
