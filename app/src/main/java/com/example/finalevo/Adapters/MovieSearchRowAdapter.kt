@@ -1,11 +1,12 @@
-package com.example.finalevo
+package com.example.finalevo.Adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.finalevo.Movie
 import com.example.finalevo.databinding.SearchMovieCellBinding
 
-class MovieSearchRowAdapter(private val movies: List<Movie>, val listener:ClickerListener) : RecyclerView.Adapter<MovieSearchRowAdapter.MoviesRowHolder>() {
+class MovieSearchRowAdapter(private val movies: List<Movie>, val listener: ClickerListener) : RecyclerView.Adapter<MovieSearchRowAdapter.MoviesRowHolder>() {
     interface ClickerListener{
         fun clickListener(movie: Movie)
     }
@@ -15,7 +16,7 @@ class MovieSearchRowAdapter(private val movies: List<Movie>, val listener:Clicke
 
     class MoviesRowHolder(var binding: SearchMovieCellBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: Movie, listener:ClickerListener) {
+        fun bind(movie: Movie, listener: ClickerListener) {
             binding.movieTitle.text = movie.title
             binding.movieReleaseDate.text = movie.releaseDate
             // TODO add movie img
@@ -28,6 +29,8 @@ class MovieSearchRowAdapter(private val movies: List<Movie>, val listener:Clicke
         }
 
     }
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesRowHolder {
         binding = SearchMovieCellBinding.inflate(LayoutInflater.from(parent.context), parent, false)

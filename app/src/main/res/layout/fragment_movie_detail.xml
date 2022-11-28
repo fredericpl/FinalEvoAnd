@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MovieDetailFragment">
+    tools:context=".Fragments.MovieDetailFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -31,6 +31,7 @@
         android:layout_height="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/movieRating"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="186dp"
         android:textColor="@color/black"
@@ -76,6 +77,7 @@
     <TextView
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:id="@+id/movieTitle"
         android:text="La guerre des étoiles "
         android:layout_marginTop="16dp"
         android:layout_marginStart="10dp"

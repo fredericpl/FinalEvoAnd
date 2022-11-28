@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/movieSearchFragment"
-        android:name="com.example.finalevo.MovieSearchFragment"
+        android:name="com.example.finalevo.Fragments.MovieSearchFragment"
         android:label="fragment_movie_search"
         tools:layout="@layout/fragment_movie_search" >
         <action
@@ -16,7 +16,12 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
-        android:name="com.example.finalevo.MovieDetailFragment"
+        android:name="com.example.finalevo.Fragments.MovieDetailFragment"
         android:label="fragment_movie_detail"
-        tools:layout="@layout/fragment_movie_detail" />
+        tools:layout="@layout/fragment_movie_detail">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+
 </navigation>

@@ -15,14 +15,14 @@ data class MovieModel(
 
 
 data class Movie (
-    @SerializedName("voteAverage")
-    val vote_average: Float,
+    @SerializedName("vote_average")
+    val voteAverage: Float,
     val id : Int,
     @SerializedName("posterPath")
     val poster_path: String?,
     @SerializedName("genreIDS")
     val genre_ids: List<Int>?,
-    val title: String,
+    var title: String,
     @SerializedName("release_date")
     val releaseDate: String,
     val overview: String,
