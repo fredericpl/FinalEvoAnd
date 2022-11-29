@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalevo.Movie
 import com.example.finalevo.databinding.SimilarMoviesCellBinding
+import com.squareup.picasso.Picasso
 
 class SimilarMoviesAdapter(private val movies: List<Movie>): RecyclerView.Adapter<SimilarMoviesAdapter.MoviesRowHolder>() {
 
@@ -14,6 +15,16 @@ class SimilarMoviesAdapter(private val movies: List<Movie>): RecyclerView.Adapte
 
         fun bind(movie: Movie){
             binding.movieTitle.text = movie.title
+
+            if (!movie.posterPath.isNullOrEmpty()) {
+                val imageUrl = "https://image.tmdb.org/t/p/w500${movie.posterPath}"
+                Picasso.get()
+                    .load(imageUrl)
+                    .into(binding.movieImg)
+            }
+
+
+
           //  TODO("add movie img")
         }
     }

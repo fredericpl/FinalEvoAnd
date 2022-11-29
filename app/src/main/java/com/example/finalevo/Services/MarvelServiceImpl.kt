@@ -40,4 +40,8 @@ class MarvelServiceImpl: MarvelService {
     override suspend fun similarMovies(id: Int): Response<MovieModel> {
         return getRetrofit().create(MarvelService::class.java).similarMovies(id)
     }
+
+    override suspend fun trendingMovies(): Response<MovieModel> {
+        return getRetrofit().create(MarvelService::class.java).trendingMovies()
+    }
 }

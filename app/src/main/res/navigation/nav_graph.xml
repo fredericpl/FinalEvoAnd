@@ -23,5 +23,10 @@
             android:name="movieId"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/topRatedFragment"
+        android:name="com.example.finalevo.Fragments.TopRatedFragment"
+        android:label="fragment_top_rated"
+        tools:layout="@layout/fragment_top_rated" />
 
 </navigation>

@@ -14,6 +14,7 @@ import com.example.finalevo.Services.MarvelServiceImpl
 import com.example.finalevo.Adapters.SimilarMoviesAdapter
 import com.example.finalevo.Services.MarvelService
 import com.example.finalevo.databinding.FragmentMovieDetailBinding
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -50,6 +51,20 @@ class MovieDetailFragment : Fragment() {
                         binding?.movieTitle?.text = it.title
                         binding?.movieRating?.text = it.voteAverage.toString().subSequence(0..2)
                         binding?.movieSynopsis?.text = it.overview
+
+                        if (!it.posterPath.isNullOrEmpty()) {
+                            val imageUrl = "https://image.tmdb.org/t/p/w500${it.posterPath}"
+                            Picasso.get()
+                                .load(imageUrl)
+                                .into(binding?.movieImg)
+                        }
+
+                        if (!it.backdropPath.isNullOrEmpty()) {
+                            val imageUrl = "https://image.tmdb.org/t/p/w500${it.backdropPath}"
+                            Picasso.get()
+                                .load(imageUrl)
+                                .into(binding?.movieBackImg)
+                        }
                     }
                 }
             }

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalevo.Movie
 import com.example.finalevo.databinding.SearchMovieCellBinding
+import com.squareup.picasso.Picasso
 
 class MovieSearchRowAdapter(private val movies: List<Movie>, val listener: ClickerListener) : RecyclerView.Adapter<MovieSearchRowAdapter.MoviesRowHolder>() {
     interface ClickerListener{
@@ -20,8 +21,12 @@ class MovieSearchRowAdapter(private val movies: List<Movie>, val listener: Click
             binding.movieTitle.text = movie.title
             binding.movieReleaseDate.text = movie.releaseDate
             // TODO add movie img
-
-
+            if (!movie.posterPath.isNullOrEmpty()) {
+                val imageUrl = "https://image.tmdb.org/t/p/w500${movie.posterPath}"
+                Picasso.get()
+                    .load(imageUrl)
+                    .into(binding.movieImg)
+            }
             itemView.setOnClickListener {
                 listener.clickListener(movie)
             }

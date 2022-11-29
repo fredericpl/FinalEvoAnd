@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName
 data class MovieModel(
     val results: List<Movie>,
     val page: Int,
-    @SerializedName("totalPages")
-    val total_pages: Int ,
-    @SerializedName("totalResults")
-    val total_results: Int
+    @SerializedName("total_pages")
+    val totalPages: Int ,
+    @SerializedName("total_results")
+    val totalResults: Int
 
 )
 
@@ -18,14 +18,14 @@ data class Movie (
     @SerializedName("vote_average")
     val voteAverage: Float,
     val id : Int,
-    @SerializedName("posterPath")
-    val poster_path: String?,
-    @SerializedName("genreIDS")
-    val genre_ids: List<Int>?,
+    @SerializedName("poster_path")
+    val posterPath: String?,
+    @SerializedName("genre_ids")
+    val genreIds: List<Int>?,
     var title: String,
     @SerializedName("release_date")
     val releaseDate: String,
     val overview: String,
-    @SerializedName("backdropPath")
-    val backdrop_path: String?
+    @SerializedName("backdrop_path")
+    val backdropPath: String?
 )

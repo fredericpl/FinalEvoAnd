@@ -22,4 +22,8 @@ interface MarvelService {
     @GET("https://api.themoviedb.org/3/movie/{id}/similar?api_key=1289bdc96c0e3bf709e4789f7a01faf9&language=en-US")
     suspend fun similarMovies(@Path("id") id: Int): Response<MovieModel>
 
+    @Headers("Content-type: application/json")
+    @GET("https://api.themoviedb.org/3/trending/all/day?api_key=1289bdc96c0e3bf709e4789f7a01faf9")
+    suspend fun trendingMovies(): Response<MovieModel>
+
 }
