@@ -21,8 +21,9 @@
         android:id="@+id/bottomNavigationView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_menu"
-        app:itemBackground="@android:color/transparent"
         android:background="@color/darkOrange"
+        app:itemTextColor="@drawable/bottom_nav_selector"
+        app:itemIconTint="@drawable/bottom_nav_selector"
         android:visibility="visible"
         />
 

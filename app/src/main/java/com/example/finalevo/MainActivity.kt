@@ -3,6 +3,7 @@ package com.example.finalevo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController : NavController
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,10 +31,12 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when(destination.id) {
-                R.id.movieSearchFragment -> Log.d("salut", "salut")
-                R.id.topRatedFragment -> Log.d("salut", "salut")
+                R.id.movieSearchFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
+                R.id.topRatedFragment -> binding.bottomNavigationView.visibility = View.VISIBLE
+                R.id.movieDetailFragment -> binding.bottomNavigationView.visibility = View.GONE
             }
         }
+
 
         var bottomNavigationView = binding.bottomNavigationView
         NavigationUI.setupWithNavController(bottomNavigationView, navController)

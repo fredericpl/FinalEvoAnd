@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.finalevo.Movie
 import com.example.finalevo.Services.MarvelServiceImpl
 import com.example.finalevo.Adapters.SimilarMoviesAdapter
+import com.example.finalevo.R
 import com.example.finalevo.Services.MarvelService
 import com.example.finalevo.databinding.FragmentMovieDetailBinding
 import com.squareup.picasso.Picasso
@@ -40,6 +42,17 @@ class MovieDetailFragment : Fragment() {
         return binding?.root
 
 
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding?.backButton?.setOnClickListener {
+            findNavController().navigate(MovieDetailFragmentDirections.actionMovieDetailFragmentToMovieSearchFragment())
+            //TODO modif back callback
+        }
     }
 
     fun movie(id: Int) {
