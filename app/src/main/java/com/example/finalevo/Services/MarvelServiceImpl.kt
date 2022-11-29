@@ -22,7 +22,7 @@ class MarvelServiceImpl: MarvelService {
             writeTimeout(60, TimeUnit.SECONDS)
         }
         return Retrofit.Builder()
-            .baseUrl("https://google.com")
+            .baseUrl("https://youporn.com")
             .addConverterFactory(GsonConverterFactory.create())
             .client(okBuilder.build())
             .build()
