@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,7 +21,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class TopRatedFragment : Fragment() {
+class TopRatedFragment : Fragment(), TrendingMoviesAdapter.ClickerListener {
 
     private var binding: FragmentTopRatedBinding? = null
     private val marvelService by lazy { MarvelServiceImpl() }
@@ -59,7 +60,11 @@ class TopRatedFragment : Fragment() {
     private fun setupRecyclerView(data: List<Movie>) {
         val recyclerView = binding?.trendingRecyclerView
         recyclerView?.layoutManager = GridLayoutManager(context, 3, RecyclerView.VERTICAL, false)
-        recyclerView?.adapter = TrendingMoviesAdapter(data)
+        recyclerView?.adapter = TrendingMoviesAdapter(data, this)
+    }
+
+    override fun clickListener(movie: Movie) {
+        findNavController().navigate(TopRatedFragmentDirections.actionTopRatedFragmentToMovieDetailFragment(movie.id))
     }
 
 }

@@ -27,6 +27,10 @@
         android:id="@+id/topRatedFragment"
         android:name="com.example.finalevo.Fragments.TopRatedFragment"
         android:label="fragment_top_rated"
-        tools:layout="@layout/fragment_top_rated" />
+        tools:layout="@layout/fragment_top_rated" >
+        <action
+            android:id="@+id/action_topRatedFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
 
 </navigation>

@@ -24,7 +24,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.http.Query
 
 
-class MovieDetailFragment : Fragment() {
+class MovieDetailFragment : Fragment(), SimilarMoviesAdapter.ClickerListener {
 
 
     private var binding: FragmentMovieDetailBinding? = null
@@ -99,9 +99,15 @@ class MovieDetailFragment : Fragment() {
     private fun SetupRecyclerView(data: List<Movie>) {
         val recyclerView = binding?.similarMovieRecyclerVue
         recyclerView?.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-        recyclerView?.adapter = SimilarMoviesAdapter(data)
+        recyclerView?.adapter = SimilarMoviesAdapter(data, this)
 
     }
+
+    override fun clickListener(movie: Movie) {
+        movie(movie.id)
+        similarMovies(movie.id)
+    }
+
 
 
 }

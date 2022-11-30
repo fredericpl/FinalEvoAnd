@@ -8,13 +8,15 @@ import com.example.finalevo.databinding.SimilarMoviesCellBinding
 import com.example.finalevo.databinding.TrendingCellBinding
 import com.squareup.picasso.Picasso
 
-class TrendingMoviesAdapter(private val movies: List<Movie>): RecyclerView.Adapter<TrendingMoviesAdapter.MoviesRowHolder>() {
-
+class TrendingMoviesAdapter(private val movies: List<Movie>, val listener: ClickerListener): RecyclerView.Adapter<TrendingMoviesAdapter.MoviesRowHolder>() {
+    interface ClickerListener{
+        fun clickListener(movie: Movie)
+    }
     private lateinit var binding: TrendingCellBinding
 
     class MoviesRowHolder(var binding: TrendingCellBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: Movie){
+        fun bind(movie: Movie, listener: ClickerListener){
 
             binding.movieRating.text = movie.voteAverage.toString().subSequence(0..2)
             if (!movie.posterPath.isNullOrEmpty()) {
@@ -22,6 +24,10 @@ class TrendingMoviesAdapter(private val movies: List<Movie>): RecyclerView.Adapt
                 Picasso.get()
                     .load(imageUrl)
                     .into(binding.movieImg)
+            }
+
+            itemView.setOnClickListener {
+                listener.clickListener(movie)
             }
         }
     }
@@ -34,7 +40,7 @@ class TrendingMoviesAdapter(private val movies: List<Movie>): RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: MoviesRowHolder, position: Int) {
-        holder.bind(movies[position])
+        holder.bind(movies[position], listener)
     }
 
     override fun getItemCount(): Int {

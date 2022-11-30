@@ -7,13 +7,15 @@ import com.example.finalevo.Movie
 import com.example.finalevo.databinding.SimilarMoviesCellBinding
 import com.squareup.picasso.Picasso
 
-class SimilarMoviesAdapter(private val movies: List<Movie>): RecyclerView.Adapter<SimilarMoviesAdapter.MoviesRowHolder>() {
-
+class SimilarMoviesAdapter(private val movies: List<Movie>, val listener: ClickerListener): RecyclerView.Adapter<SimilarMoviesAdapter.MoviesRowHolder>() {
+    interface ClickerListener{
+        fun clickListener(movie: Movie)
+    }
     private lateinit var binding: SimilarMoviesCellBinding
 
     class MoviesRowHolder(var binding: SimilarMoviesCellBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: Movie){
+        fun bind(movie: Movie, listener: ClickerListener){
             binding.movieTitle.text = movie.title
 
             if (!movie.posterPath.isNullOrEmpty()) {
@@ -21,6 +23,10 @@ class SimilarMoviesAdapter(private val movies: List<Movie>): RecyclerView.Adapte
                 Picasso.get()
                     .load(imageUrl)
                     .into(binding.movieImg)
+            }
+
+            itemView.setOnClickListener {
+                listener.clickListener(movie)
             }
 
 
@@ -37,7 +43,7 @@ class SimilarMoviesAdapter(private val movies: List<Movie>): RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: MoviesRowHolder, position: Int) {
-        holder.bind(movies[position])
+        holder.bind(movies[position], listener)
     }
 
     override fun getItemCount(): Int {
