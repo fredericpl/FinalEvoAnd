@@ -23,7 +23,7 @@ import kotlinx.coroutines.withContext
 class TopRatedFragment : Fragment() {
 
     private var binding: FragmentTopRatedBinding? = null
-    private val MarvelService by lazy { MarvelServiceImpl() }
+    private val marvelService by lazy { MarvelServiceImpl() }
 
 
 
@@ -43,7 +43,7 @@ class TopRatedFragment : Fragment() {
     fun trending() {
 
             CoroutineScope(Dispatchers.IO).launch {
-                val response = MarvelService.trendingMovies()
+                val response = marvelService.trendingMovies()
                 withContext(Dispatchers.Main){
                     if(response.isSuccessful){
                         response.body()?.results?.let {

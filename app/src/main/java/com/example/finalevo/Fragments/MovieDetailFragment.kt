@@ -50,8 +50,7 @@ class MovieDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.backButton?.setOnClickListener {
-            findNavController().navigate(MovieDetailFragmentDirections.actionMovieDetailFragmentToMovieSearchFragment())
-            //TODO modif back callback
+            findNavController().popBackStack()
         }
     }
 

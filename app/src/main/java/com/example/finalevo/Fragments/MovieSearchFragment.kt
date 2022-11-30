@@ -21,7 +21,7 @@ import kotlinx.coroutines.withContext
 class MovieSearchFragment : Fragment(), MovieSearchRowAdapter.ClickerListener {
 
     private var binding: FragmentMovieSearchBinding? = null
-    private val MarvelService by lazy { MarvelServiceImpl() }
+    private val marvelService by lazy { MarvelServiceImpl() }
     private var title: String = ""
 
 
@@ -60,7 +60,7 @@ class MovieSearchFragment : Fragment(), MovieSearchRowAdapter.ClickerListener {
             setupRecyclerView(listOf())
         } else {
             CoroutineScope(Dispatchers.IO).launch {
-                val response = MarvelService.assets(query)
+                val response = marvelService.assets(query)
                 withContext(Dispatchers.Main){
                     if(response.isSuccessful){
                         response.body()?.results?.let {
