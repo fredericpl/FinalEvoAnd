@@ -7,12 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.finalevo.Adapters.MovieSearchRowAdapter
 import com.example.finalevo.Adapters.TrendingMoviesAdapter
 import com.example.finalevo.Movie
-import com.example.finalevo.Services.MarvelService
 import com.example.finalevo.Services.MarvelServiceImpl
 import com.example.finalevo.databinding.FragmentTopRatedBinding
 import kotlinx.coroutines.CoroutineScope
@@ -21,7 +18,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class TopRatedFragment : Fragment(), TrendingMoviesAdapter.ClickerListener {
+class TrendingFragment : Fragment(), TrendingMoviesAdapter.ClickerListener {
 
     private var binding: FragmentTopRatedBinding? = null
     private val marvelService by lazy { MarvelServiceImpl() }
@@ -64,7 +61,7 @@ class TopRatedFragment : Fragment(), TrendingMoviesAdapter.ClickerListener {
     }
 
     override fun clickListener(movie: Movie) {
-        findNavController().navigate(TopRatedFragmentDirections.actionTopRatedFragmentToMovieDetailFragment(movie.id))
+        findNavController().navigate(TrendingFragmentDirections.actionTopRatedFragmentToMovieDetailFragment(movie.id))
     }
 
 }

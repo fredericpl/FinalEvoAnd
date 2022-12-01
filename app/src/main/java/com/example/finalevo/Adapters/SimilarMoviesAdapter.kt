@@ -7,7 +7,7 @@ import com.example.finalevo.Movie
 import com.example.finalevo.databinding.SimilarMoviesCellBinding
 import com.squareup.picasso.Picasso
 
-class SimilarMoviesAdapter(private val movies: List<Movie>, val listener: ClickerListener): RecyclerView.Adapter<SimilarMoviesAdapter.MoviesRowHolder>() {
+class SimilarMoviesAdapter(private val movies: List<Movie>, private val listener: ClickerListener): RecyclerView.Adapter<SimilarMoviesAdapter.MoviesRowHolder>() {
     interface ClickerListener{
         fun clickListener(movie: Movie)
     }

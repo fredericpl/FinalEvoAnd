@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.finalevo.Movie
 import com.example.finalevo.databinding.SearchMovieCellBinding
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.util.*
 
-class MovieSearchRowAdapter(private val movies: List<Movie>, val listener: ClickerListener) : RecyclerView.Adapter<MovieSearchRowAdapter.MoviesRowHolder>() {
+class MovieSearchRowAdapter(private val movies: List<Movie>, private val listener: ClickerListener) : RecyclerView.Adapter<MovieSearchRowAdapter.MoviesRowHolder>() {
     interface ClickerListener{
         fun clickListener(movie: Movie)
     }
@@ -19,7 +21,24 @@ class MovieSearchRowAdapter(private val movies: List<Movie>, val listener: Click
 
         fun bind(movie: Movie, listener: ClickerListener) {
             binding.movieTitle.text = movie.title
-            binding.movieReleaseDate.text = movie.releaseDate
+
+
+            fun dateToString(networkDate: String): String {
+
+                if (!networkDate.isNullOrEmpty()) {
+                    val dateFormat = SimpleDateFormat("yyyy-mm-dd", Locale.US)
+                    val date = dateFormat.parse(networkDate)
+                    return SimpleDateFormat("dd/mm/yyyy", Locale.US).format(date)
+
+                }
+                    return "you aren't old enough bitch"
+
+
+
+
+            }
+
+            binding.movieReleaseDate.text = dateToString(movie.releaseDate)
             // TODO add movie img
             if (!movie.posterPath.isNullOrEmpty()) {
                 val imageUrl = "https://image.tmdb.org/t/p/w500${movie.posterPath}"

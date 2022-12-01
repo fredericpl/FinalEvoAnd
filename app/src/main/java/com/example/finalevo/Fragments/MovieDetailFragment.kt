@@ -5,23 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.finalevo.API_KEY
 import com.example.finalevo.Movie
 import com.example.finalevo.Services.MarvelServiceImpl
 import com.example.finalevo.Adapters.SimilarMoviesAdapter
-import com.example.finalevo.R
-import com.example.finalevo.Services.MarvelService
 import com.example.finalevo.databinding.FragmentMovieDetailBinding
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.http.Query
 
 
 class MovieDetailFragment : Fragment(), SimilarMoviesAdapter.ClickerListener {
@@ -30,6 +27,7 @@ class MovieDetailFragment : Fragment(), SimilarMoviesAdapter.ClickerListener {
     private var binding: FragmentMovieDetailBinding? = null
     private val marvelService by lazy { MarvelServiceImpl() }
     private val args: MovieDetailFragmentArgs by navArgs()
+    private val apiKey = "1289bdc96c0e3bf709e4789f7a01faf9"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -107,7 +105,6 @@ class MovieDetailFragment : Fragment(), SimilarMoviesAdapter.ClickerListener {
         movie(movie.id)
         similarMovies(movie.id)
     }
-
 
 
 }
