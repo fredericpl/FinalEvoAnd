@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/topRatedFragment"
-        android:name="com.example.finalevo.Fragments.TopRatedFragment"
+        android:name="com.example.finalevo.Fragments.TrendingFragment"
         android:label="fragment_top_rated"
         tools:layout="@layout/fragment_top_rated" >
         <action

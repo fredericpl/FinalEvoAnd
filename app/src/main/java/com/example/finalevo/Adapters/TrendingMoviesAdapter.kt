@@ -4,11 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalevo.Movie
-import com.example.finalevo.databinding.SimilarMoviesCellBinding
 import com.example.finalevo.databinding.TrendingCellBinding
 import com.squareup.picasso.Picasso
 
-class TrendingMoviesAdapter(private val movies: List<Movie>, val listener: ClickerListener): RecyclerView.Adapter<TrendingMoviesAdapter.MoviesRowHolder>() {
+class TrendingMoviesAdapter(private val movies: List<Movie>, private val listener: ClickerListener): RecyclerView.Adapter<TrendingMoviesAdapter.MoviesRowHolder>() {
     interface ClickerListener{
         fun clickListener(movie: Movie)
     }
@@ -19,6 +18,7 @@ class TrendingMoviesAdapter(private val movies: List<Movie>, val listener: Click
         fun bind(movie: Movie, listener: ClickerListener){
 
             binding.movieRating.text = movie.voteAverage.toString().subSequence(0..2)
+
             if (!movie.posterPath.isNullOrEmpty()) {
                 val imageUrl = "https://image.tmdb.org/t/p/w500${movie.posterPath}"
                 Picasso.get()

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/search"
+    android:background="@drawable/background_search_img"
     tools:context=".Fragments.MovieSearchFragment">
 
 
@@ -49,9 +50,7 @@
         android:id="@+id/SearchMovieRecyclerView"
         app:layout_constraintTop_toBottomOf="@id/searchContainer"
         android:layout_width="match_parent"
-        android:layout_marginTop="-20dp"
         android:layout_height="700dp"
-        android:background="@drawable/background_search_img"
         app:layout_constraintStart_toStartOf="parent"
          />
 </androidx.constraintlayout.widget.ConstraintLayout>
