@@ -16,16 +16,16 @@ data class MovieModel(
 
 data class Movie (
     @SerializedName("vote_average")
-    val voteAverage: Float,
+    val voteAverage: Float? = 0f,
     val id : Int,
     @SerializedName("poster_path")
-    val posterPath: String?,
+    val posterPath: String? = "",
     @SerializedName("genre_ids")
-    val genreIds: List<Int>?,
-    var title: String,
+    val genreIds: List<Int>? = listOf(),
+    var title: String? = "",
     @SerializedName("release_date")
-    val releaseDate: String,
-    val overview: String,
+    val releaseDate: String? = "",
+    val overview: String? = "",
     @SerializedName("backdrop_path")
-    val backdropPath: String?
+    val backdropPath: String? = ""
 )

@@ -38,7 +38,13 @@ class MovieSearchRowAdapter(private val movies: List<Movie>, private val listene
 
             }
 
-            binding.movieReleaseDate.text = dateToString(movie.releaseDate)
+            var date = ""
+            movie.releaseDate.let {
+                if (it != null) {
+                    date = it
+                }
+            }
+            binding.movieReleaseDate.text = dateToString(date)
             // TODO add movie img
             if (!movie.posterPath.isNullOrEmpty()) {
                 val imageUrl = "https://image.tmdb.org/t/p/w500${movie.posterPath}"
